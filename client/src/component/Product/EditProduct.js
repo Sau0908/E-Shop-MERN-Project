@@ -115,7 +115,7 @@ const EditProduct = () => {
             fullWidth
             onClick={handleDeleteProduct}
           >
-            s Delete Product
+            Delete Product
           </Button>
         </div>
       </div>
