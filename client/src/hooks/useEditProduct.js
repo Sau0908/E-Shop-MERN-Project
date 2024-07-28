@@ -21,7 +21,7 @@ const useEditProduct = () => {
     const fetchProduct = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:5000/api/products/${id}`
+          `https://e-shop-mern-project.vercel.app/api/products/${id}`
         );
         setProductData(response.data);
       } catch (error) {
@@ -56,7 +56,7 @@ const useEditProduct = () => {
     }
 
     try {
-      await axios.put(`http://localhost:5000/api/products/${id}`, formData, {
+      await axios.put(`https://e-shop-mern-project.vercel.app/api/products/${id}`, formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
@@ -74,7 +74,7 @@ const useEditProduct = () => {
 
   const handleDeleteProduct = async () => {
     try {
-      await axios.delete(`http://localhost:5000/api/products/${id}`);
+      await axios.delete(`https://e-shop-mern-project.vercel.app/api/products/${id}`);
       Swal.fire("Success", "Product Successfully Deleted", "success");
       navigate("/allproduct");
     } catch (error) {
