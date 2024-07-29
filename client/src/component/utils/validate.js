@@ -1,4 +1,4 @@
-export const checkValidateData = (email, password, username) => {
+export const checkValidateData = (email, password) => {
   const isEmailValid = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(
     email
   );
@@ -7,13 +7,13 @@ export const checkValidateData = (email, password, username) => {
     password
   );
 
-  const isUsernameValid = /^[a-zA-Z0-9._-]{3,}$/.test(username);
+
 
   if (!isEmailValid) return "Email ID is not valid";
 
   if (!isPasswordValid) return "Password is not valid";
 
-  if (!isUsernameValid) return "Username ,should be at least 3 characters long";
+ 
 
   return null;
 };
