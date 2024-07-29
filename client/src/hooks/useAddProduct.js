@@ -42,7 +42,7 @@ const useAddProduct = (authToken) => {
     try {
       console.log("authToken From addProduct", authToken);
       const response = await axios.post(
-        "http://localhost:5000/api/products",
+        "https://e-shop-mern-project.vercel.app/api/products",
         formData,
         {
           headers: {
