@@ -3,10 +3,11 @@ import bcrypt from "bcryptjs";
 import users from "../models/auth.js";
 
 export const signup = async (req, res) => {
-  const { username, email, password, profilePicture, bio } = req.body;
-  console.log(profilePicture);
-  console.log(bio);
-
+  const { username, email, password, bio } = req.body;
+;
+  if (!username || username.length < 3) {
+    return res.status(400).json({ message: "Username must be at least 3 characters long" });
+  }
   try {
     const existingUser = await users.findOne({ email });
     if (existingUser) {
@@ -18,6 +19,7 @@ export const signup = async (req, res) => {
       username,
       email,
       password: hashedPassword,
+      bio
     });
 
     const token = jwt.sign({ email: newUser.email, id: newUser._id }, "test", {
