@@ -14,7 +14,7 @@ const AllUser = () => {
   useEffect(() => {
     const fetchUsers = async () => {
       try {
-        const response = await axios.get("http://localhost:5000/api/user", {
+        const response = await axios.get("https://e-shop-mern-project.vercel.app/api/user", {
           headers: {
             Authorization: `Bearer ${token}`,
           },
