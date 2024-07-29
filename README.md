@@ -28,6 +28,7 @@ npm install
 ### 3. Environment Variables
 
 MONGODB_URI=your_mongodb_uri
+JWT_SECRET=secret_string
 CLOUDINARY_CLOUD_NAME=your_cloudinary_cloud_name
 CLOUDINARY_API_KEY=your_cloudinary_api_key
 CLOUDINARY_API_SECRET=your_cloudinary_api_secret
@@ -36,7 +37,7 @@ CLOUDINARY_API_SECRET=your_cloudinary_api_secret
 
 For the Server
 
-npm start
+npm start 
 
 For the Client
 
