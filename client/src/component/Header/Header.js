@@ -18,6 +18,10 @@ const Header = () => {
     setIsOpen(!isOpen);
   };
 
+ const handleLogin=()=>{
+  navigate("/login");
+}
+
   const handleLogout = () => {
     dispatch(removeUser());
     localStorage.removeItem("Profile");
@@ -49,7 +53,7 @@ const Header = () => {
           <UserAvatar />
           {!user.isAuthenticated ? (
             <button
-              onClick={handleLogout}
+              onClick={handleLogIn}
               className="text-gray-800 flex mr-2 hover:text-gray-600 focus:outline-none"
             >
               <FaSignInAlt size={30} />{" "}
