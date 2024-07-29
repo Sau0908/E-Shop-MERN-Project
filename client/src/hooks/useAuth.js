@@ -30,7 +30,7 @@ const useAuth = (initialState) => {
   const handleSubmit = async (event, navigate) => {
     event.preventDefault();
     const { username, email, password, bio } = formData;
-    const msg = checkValidateData(email, password,username);
+    const msg = checkValidateData(email, password);
     if (msg) {
       setErrorMsg(msg);
       return;
