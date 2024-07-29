@@ -49,6 +49,10 @@ const AllRoutes = () => {
       path: "/user/userprofile",
       element: <PrivateRoute element={UserProfile} />,
     },
+     {
+      path: "/login",
+      element: <Main/>,
+    },
   ]);
 
   return <RouterProvider router={router} />;
