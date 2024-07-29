@@ -39,14 +39,14 @@ const useAuth = (initialState) => {
     try {
       let response;
       if (isRegisterForm) {
-        response = await axios.post("https://e-shop-mern-project.vercel.app/api/user/register", {
+        response = await axios.post("http://localhost:5000/api/user/register", {
           username,
           email,
           password,
           bio,
         });
       } else {
-        response = await axios.post("https://e-shop-mern-project.vercel.app/api/user/login", {
+        response = await axios.post("http://localhost:5000/api/user/login", {
           email,
           password,
         });

@@ -4,17 +4,23 @@ import Button from "@mui/material/Button";
 import LeftNav from "../Home/LeftNav";
 import Header from "../Header/Header";
 import useAddProduct from "../../hooks/useAddProduct";
+import { useSelector } from "react-redux";
 
 const AddProduct = () => {
+  const user = useSelector((state) => state.user);
+  const { token } = user?.userInfo || {};
+  console.log("token", token);
   const { productData, loading, error, handleChange, handleSubmit } =
-    useAddProduct();
+    useAddProduct(token);
 
   return (
     <div>
       <Header />
-      <div className="min-h-screen flex flex-col md:flex-row">
-        <LeftNav />
-        <div className="flex-1 text-white p-6">
+      <div className="flex flex-col md:flex-row min-h-screen">
+        <div className="w-full md:w-1/4 bg-gray-800 text-white p-6">
+          <LeftNav />
+        </div>
+        <div className="w-full md:w-3/4 md:mt-20 mt-0 text-white p-6">
           <div className="bg-gray-300 p-6 rounded-lg shadow-lg">
             <form onSubmit={handleSubmit} className="space-y-6">
               <h2 className="text-2xl font-bold text-black mb-6">
@@ -89,10 +95,10 @@ const AddProduct = () => {
                   accept="image/*"
                   onChange={handleChange}
                   className="block w-full text-sm text-gray-500
-                  file:py-2 file:px-4
-                  file:rounded-full file:border-0
-                  file:bg-violet-50 file:text-violet-700
-                  hover:file:bg-violet-100"
+               file:py-2 file:px-4
+               file:rounded-full file:border-0
+               file:bg-violet-50 file:text-violet-700
+               hover:file:bg-violet-100"
                 />
               </div>
               <Button

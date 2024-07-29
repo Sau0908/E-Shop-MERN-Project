@@ -1,9 +1,5 @@
-import React, { useEffect } from "react";
-import {
-  createBrowserRouter,
-  RouterProvider,
-  useNavigate,
-} from "react-router-dom";
+import React from "react";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import AllProduct from "./component/Product/AllProduct";
 import AddProduct from "./component/Product/AddProduct";
 import Main from "./component/Auth/Main";
@@ -12,6 +8,8 @@ import EditProduct from "./component/Product/EditProduct";
 import Product from "./component/Product/Product";
 import PrivateRoute from "./component/PrivateRoute";
 import AllUser from "./component/User/AllUser";
+import AdminPannel from "./component/Admin/AdminPannel";
+import UserProfile from "./component/User/UserProfile";
 
 const AllRoutes = () => {
   const router = createBrowserRouter([
@@ -42,6 +40,14 @@ const AllRoutes = () => {
     {
       path: "/alluser",
       element: <PrivateRoute element={AllUser} />,
+    },
+    {
+      path: "/admin",
+      element: <PrivateRoute element={AdminPannel} />,
+    },
+    {
+      path: "/user/userprofile",
+      element: <PrivateRoute element={UserProfile} />,
     },
   ]);
 

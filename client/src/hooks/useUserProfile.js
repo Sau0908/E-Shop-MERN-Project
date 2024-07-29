@@ -15,7 +15,7 @@ const useUserProfile = (userId, token) => {
     const fetchUserProfile = async () => {
       try {
         const response = await axios.get(
-          `https://e-shop-mern-project.vercel.app/api/user/${userId}`,
+          `http://localhost:5000/api/user/${userId}`,
           {
             headers: {
               Authorization: `Bearer ${token}`,
@@ -51,7 +51,7 @@ const useUserProfile = (userId, token) => {
 
     try {
       const response = await axios.put(
-        `https://e-shop-mern-project.vercel.app/api/user/${userId}`,
+        `http://localhost:5000/api/user/${userId}`,
         {
           username: name,
           contactNumber,

@@ -2,16 +2,23 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import LeftNav from "../Home/LeftNav";
 import Header from "../Header/Header";
+import { useSelector } from "react-redux";
 
 const AllUser = () => {
   const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const user = useSelector((state) => state.user);
+  const { token } = user?.userInfo || {};
 
   useEffect(() => {
     const fetchUsers = async () => {
       try {
-        const response = await axios.get("https://e-shop-mern-project.vercel.app/api/user");
+        const response = await axios.get("http://localhost:5000/api/user", {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
         setUsers(response.data);
         setLoading(false);
       } catch (err) {
@@ -32,9 +39,11 @@ const AllUser = () => {
   return (
     <div>
       <Header />
-      <div className="min-h-screen flex flex-col md:flex-row">
-        <LeftNav />
-        <div className="flex-1 p-6 flex flex-wrap gap-4 justify-center">
+      <div className="flex flex-col md:flex-row min-h-screen">
+        <div className="w-full md:w-1/4 bg-gray-800 text-white p-6 flex-shrink-0">
+          <LeftNav />
+        </div>
+        <div className="flex-1 p-6 flex md:mt-20 mt-0 flex-wrap gap-4 justify-center">
           {users &&
             users.map((user) => (
               <div

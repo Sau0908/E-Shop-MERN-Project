@@ -4,6 +4,8 @@ import { useParams } from "react-router-dom";
 import { FaMinus, FaPlus } from "react-icons/fa";
 import LeftNav from "../Home/LeftNav";
 import Header from "../Header/Header";
+import { useSelector } from "react-redux";
+import Swal from "sweetalert2";
 
 const Product = () => {
   const { id } = useParams();
@@ -11,6 +13,7 @@ const Product = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [quantity, setQuantity] = useState(1);
+  const user = useSelector((state) => state.user);
 
   useEffect(() => {
     const fetchProduct = async () => {
@@ -36,6 +39,11 @@ const Product = () => {
   const handleIncreaseQuantity = () => {
     setQuantity((prevQuantity) => prevQuantity + 1);
   };
+  const handleAddToCart = () => {
+    if (!user.isAuthenticated) {
+      Swal.fire("OOPs!! , Fisrt Login then add to Cart");
+    }
+  };
 
   if (loading) {
     return <div className="container mx-auto py-8 text-center">Loading...</div>;
@@ -52,11 +60,13 @@ const Product = () => {
   return (
     <div>
       <Header />
-      <div className=" w-full min-h-screen flex flex-col md:flex-row  ">
-        <LeftNav />
-        <div className="flex flex-col md:flex-row items-start  bg-gray-200 shadow-lg rounded-lg w-full">
+      <div className="flex flex-col md:flex-row min-h-screen bg-white">
+        <div className="w-full md:w-1/4 bg-gray-800 text-white p-6">
+          <LeftNav />
+        </div>
+        <div className="flex flex-col md:flex-row items-start bg-gray-300 shadow-lg rounded-lg w-full md:w-3/4 p-6 mx-8 mt-24">
           <div className="w-full md:w-1/2 p-4">
-            <div className="relative overflow-hidden rounded-lg mb-4">
+            <div className="relative overflow-hidden rounded-lg mb-4 border-2 border-gray-400">
               <img
                 src={product.image}
                 alt={product.productName}
@@ -92,9 +102,14 @@ const Product = () => {
                 <FaPlus />
               </button>
             </div>
-            <button className="bg-purple-600 text-white px-4 py-2 rounded-lg hover:bg-purple-700 transition-colors duration-300 ease-in-out mb-6">
-              Add to Cart
-            </button>
+            {!user.isAdmin && (
+              <button
+                className="bg-purple-600 text-white px-4 py-2 rounded-lg hover:bg-purple-700 transition-colors duration-300 ease-in-out mb-6"
+                onClick={handleAddToCart}
+              >
+                Add to Cart
+              </button>
+            )}
             <div>
               <p className="text-gray-700 font-semibold mb-2">
                 Product Details

@@ -1,8 +1,11 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { FaEdit } from "react-icons/fa";
+import { useSelector } from "react-redux";
 
 const ProductCard = ({ product }) => {
+  const user = useSelector((state) => state.user);
+
   const navigate = useNavigate();
 
   const handleCardClick = () => {
@@ -16,7 +19,7 @@ const ProductCard = ({ product }) => {
   };
 
   return (
-    <div className="p-4 border rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 ease-in-out relative w-64 h-96 bg-white cursor-pointer m-4 flex flex-col">
+    <div className=" p-4 border rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 ease-in-out relative w-64 h-96 bg-white cursor-pointer m-4 flex flex-col">
       <div onClick={handleCardClick} className="flex-grow">
         <div className="relative overflow-hidden rounded-lg h-40 mb-2">
           <img
@@ -34,14 +37,16 @@ const ProductCard = ({ product }) => {
           <p className="text-xl font-bold text-indigo-600">₹{product.price}</p>
         </div>
       </div>
-      <div className="flex justify-between items-center mt-2">
-        <button
-          className="flex items-center px-3 py-1 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors duration-300 ease-in-out"
-          onClick={handleEditClick}
-        >
-          <FaEdit className="mr-1" />
-          Edit
-        </button>
+      <div>
+        {user.isAdmin && (
+          <button
+            className="flex  justify-end px-3 py-1 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors duration-300 ease-in-out"
+            onClick={handleEditClick}
+          >
+            <FaEdit className="mr-1" />
+            Edit
+          </button>
+        )}
       </div>
     </div>
   );

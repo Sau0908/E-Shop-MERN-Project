@@ -3,7 +3,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 
-const useAddProduct = () => {
+const useAddProduct = (authToken) => {
   const navigate = useNavigate();
   const [productData, setProductData] = useState({
     productName: "",
@@ -40,18 +40,20 @@ const useAddProduct = () => {
     }
 
     try {
+      console.log("authToken From addProduct", authToken);
       const response = await axios.post(
-        "https://e-shop-mern-project.vercel.app/api/products",
+        "http://localhost:5000/api/products",
         formData,
         {
           headers: {
             "Content-Type": "multipart/form-data",
+            Authorization: `Bearer ${authToken}`,
           },
         }
       );
 
       Swal.fire("Success", "Product Added Successfully", "success");
-      navigate("/allproduct");
+      navigate("/browse");
     } catch (error) {
       setError(error);
       Swal.fire("Error", "Failed to Add Product: " + error.message, "error");

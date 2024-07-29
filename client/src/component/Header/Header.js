@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from "react";
-import { FaCartArrowDown, FaBars, FaTimes, FaSignOutAlt } from "react-icons/fa";
+import React, { useState } from "react";
+import { FaBars, FaTimes, FaSignOutAlt } from "react-icons/fa";
 import { CgProfile } from "react-icons/cg";
 import { useDispatch, useSelector } from "react-redux";
 import { removeUser } from "../utils/userSlice";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import UserAvatar from "../User/UserAvatar";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -18,14 +19,12 @@ const Header = () => {
 
   const handleLogout = () => {
     dispatch(removeUser());
-
     localStorage.removeItem("Profile");
-
     navigate("/");
   };
 
   return (
-    <header className="bg-white shadow-lg ">
+    <header className="fixed top-0 left-0 right-0 bg-white shadow-lg z-50">
       <div className="container mx-auto px-4 py-6 flex items-center justify-between">
         <div className="text-2xl font-bold text-gray-800">
           <a href="/" className="hover:text-gray-600">
@@ -33,18 +32,20 @@ const Header = () => {
           </a>
         </div>
         <nav className="hidden md:flex space-x-4">
-          <a href="/shop" className="text-gray-800 hover:text-gray-600">
+          <Link to="/browse" className="text-gray-800 hover:text-gray-600">
             Product
-          </a>
-          <a href="/about" className="text-gray-800 hover:text-gray-600">
-            Dashboard
-          </a>
+          </Link>
+          <Link to="/shop" className="text-gray-800 hover:text-gray-600">
+            Categories
+          </Link>
+          {user.isAdmin && (
+            <Link to="/browse" className="text-gray-800 hover:text-gray-600">
+              Admin Panel
+            </Link>
+          )}
         </nav>
         <div className="hidden md:flex items-center space-x-4">
-          <a href="/account" className="text-gray-800 flex hover:text-gray-600">
-            <CgProfile size={30} />
-            <p className="ml-2 underline">{username}</p>
-          </a>
+          <UserAvatar />
           <button
             onClick={handleLogout}
             className="text-gray-800 hover:text-gray-600 focus:outline-none"
@@ -55,7 +56,7 @@ const Header = () => {
         <div className="md:hidden flex items-center">
           <button
             onClick={toggleMenu}
-            className="text-gray-800 hover:text-gray-600 focus:outline-none"
+            className="text-gray-800 hover:text-gray-600 focus:outline-none mr-4"
           >
             {isOpen ? <FaTimes size={30} /> : <FaBars size={30} />}
           </button>
@@ -68,9 +69,8 @@ const Header = () => {
               Product
             </a>
             <a href="/about" className="text-gray-800 hover:text-gray-600">
-              Dashboard
+              Admin Pannel
             </a>
-
             <a
               href="/account"
               className="text-gray-800 hover:text-gray-600 flex items-center"

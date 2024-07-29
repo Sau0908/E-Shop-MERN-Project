@@ -12,7 +12,9 @@ const AllProduct = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await axios.get("https://e-shop-mern-project.vercel.app/api/products");
+        const response = await axios.get(
+          "https://e-shop-mern-project.vercel.app/api/products"
+        );
         setProducts(response.data);
       } catch (error) {
         setError("Error fetching products");
@@ -30,14 +32,10 @@ const AllProduct = () => {
 
   return (
     <div>
-      <Header />
-      <div className="min-h-screen flex flex-col md:flex-row">
-        <LeftNav />
-        <div className="flex-grow grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8 lg:gap-16 p-4">
-          {products.map((product) => (
-            <ProductCard key={product.id} product={product} />
-          ))}
-        </div>
+      <div className=" mt-12 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3  p-4 ">
+        {products.map((product) => (
+          <ProductCard key={product.id} product={product} />
+        ))}
       </div>
     </div>
   );
