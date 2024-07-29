@@ -33,7 +33,7 @@ const AllProduct = () => {
       <Header />
       <div className="min-h-screen flex flex-col md:flex-row">
         <LeftNav />
-        <div className="flex-grow grid grid-cols-2 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 md:gap-16 gap-12 p-4 ">
+        <div className="flex-grow grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8 lg:gap-16 p-4">
           {products.map((product) => (
             <ProductCard key={product.id} product={product} />
           ))}
