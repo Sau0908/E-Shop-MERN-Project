@@ -12,7 +12,7 @@ const Header = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const user = useSelector((state) => state.user);
-  const { username } = user?.userInfo || {};
+
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
