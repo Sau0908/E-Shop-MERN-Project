@@ -42,6 +42,7 @@ const Product = () => {
   const handleAddToCart = () => {
     if (!user.isAuthenticated) {
       Swal.fire("OOPs!! , Fisrt Login then add to Cart");
+      return;
     }
       Swal.fire("Success", "Product Added into Cart", "successfully");
   };
