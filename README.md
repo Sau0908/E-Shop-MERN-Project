@@ -46,6 +46,11 @@ npm run start
 
 
 
+Admin Email - testing2609@gmail.com
+Admin Password - Testing@2609
+
+
+
 
 
 ```
