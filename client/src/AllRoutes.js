@@ -12,6 +12,7 @@ import AdminPannel from "./component/Admin/AdminPannel";
 import UserProfile from "./component/User/UserProfile";
 
 const AllRoutes = () => {
+  
   const router = createBrowserRouter([
     {
       path: "/",
