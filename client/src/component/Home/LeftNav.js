@@ -8,7 +8,7 @@ const LeftNav = ({ className }) => {
     <div
       className={`${className} md:fixed md:top-20 md:left-0 md:h-full overflow-auto bg-gray-800 text-white w-full md:w-auto`}
     >
-      <div className="p-6">
+      <div className="p-6 mt-10 md:mt-0">
         {user.isAdmin && (
           <div>
             <ul>
