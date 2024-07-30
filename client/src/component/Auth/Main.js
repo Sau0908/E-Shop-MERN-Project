@@ -21,6 +21,7 @@ const Main = () => {
       );
       navigate("/browse");
     } else {
+      
       navigate("/login");
     }
   }, [dispatch, navigate]);
