@@ -83,9 +83,11 @@ const Header = () => {
             <a href="/shop" className="text-gray-800 hover:text-gray-600">
               Product
             </a>
-            <a href="/about" className="text-gray-800 hover:text-gray-600">
-              Admin Pannel
-            </a>
+            {user.isAdmin && (
+            <Link to="/browse" className="text-gray-800 hover:text-gray-600">
+              Admin Panel
+            </Link>
+          )}
             <UserAvatar />
     {!user.isAuthenticated ? (
             <button
