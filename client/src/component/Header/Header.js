@@ -86,20 +86,24 @@ const Header = () => {
             <a href="/about" className="text-gray-800 hover:text-gray-600">
               Admin Pannel
             </a>
-            <a
-              href="/account"
-              className="text-gray-800 hover:text-gray-600 flex items-center"
+            <UserAvatar />
+    {!user.isAuthenticated ? (
+            <button
+              onClick={handleLogIn}
+              className="text-gray-800 flex mr-2 hover:text-gray-600 focus:outline-none"
             >
-              <CgProfile size={20} className="mr-2" />
-              Account
-            </a>
+              <FaSignInAlt size={30} />{" "}
+              <p className="ml-2 hover:underline ">LogIn </p>
+            </button>
+          ) : (
             <button
               onClick={handleLogout}
-              className="text-gray-800 hover:text-gray-600 flex items-center focus:outline-none"
+              className="text-gray-800 flex mr-2 hover:text-gray-600 focus:outline-none"
             >
-              <FaSignOutAlt size={20} className="mr-2" />
-              Logout
+              <FaSignOutAlt size={30} />{" "}
+              <p className="ml-2 hover:underline">LogOut </p>
             </button>
+          )}
           </nav>
         </div>
       )}
