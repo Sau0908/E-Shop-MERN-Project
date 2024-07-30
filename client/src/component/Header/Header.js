@@ -39,7 +39,7 @@ const Header = () => {
           <Link to="/browse" className="text-gray-800 hover:text-gray-600">
             Product
           </Link>
-          <Link to="/shop" className="text-gray-800 hover:text-gray-600">
+          <Link to="/browse" className="text-gray-800 hover:text-gray-600">
             Categories
           </Link>
           {user.isAdmin && (
