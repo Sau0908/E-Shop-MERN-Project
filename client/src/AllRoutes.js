@@ -17,10 +17,10 @@ const AllRoutes = () => {
       path: "/",
       element: <Body />,
     },
-        {
-          path: "/login"
-          element:<Main/>,
-        }
+    {
+      path: "/login",
+      element: <Main />,
+    },
     {
       path: "/browse",
       element: <PrivateRoute element={Body} />,
@@ -53,7 +53,6 @@ const AllRoutes = () => {
       path: "/user/userprofile",
       element: <PrivateRoute element={UserProfile} />,
     },
-   
   ]);
 
   return <RouterProvider router={router} />;
