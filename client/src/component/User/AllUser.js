@@ -3,6 +3,7 @@ import axios from "axios";
 import LeftNav from "../Home/LeftNav";
 import Header from "../Header/Header";
 import { useSelector } from "react-redux";
+import ShimmerLoadingUI from "../Home/ShimmerLoadingUI";
 
 const AllUser = () => {
   const [users, setUsers] = useState([]);
@@ -30,7 +31,9 @@ const AllUser = () => {
     fetchUsers();
   }, []);
 
-  if (loading) return <div className="text-center mt-4">Loading...</div>;
+  if (loading) {
+    return <ShimmerLoadingUI />;
+  }
   if (error)
     return (
       <div className="text-center mt-4 text-red-500">Error loading users</div>
