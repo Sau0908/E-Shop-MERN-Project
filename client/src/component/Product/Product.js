@@ -43,6 +43,7 @@ const Product = () => {
     if (!user.isAuthenticated) {
       Swal.fire("OOPs!! , Fisrt Login then add to Cart");
     }
+      Swal.fire("Success", "Product Added into Cart", "successfully");
   };
 
   if (loading) {
