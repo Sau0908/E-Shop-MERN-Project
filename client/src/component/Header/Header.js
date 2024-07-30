@@ -13,14 +13,13 @@ const Header = () => {
   const dispatch = useDispatch();
   const user = useSelector((state) => state.user);
 
-
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
 
- const handleLogin=()=>{
-  navigate("/login");
-}
+  const handleLogIn = () => {
+    navigate("/login");
+  };
 
   const handleLogout = () => {
     dispatch(removeUser());
