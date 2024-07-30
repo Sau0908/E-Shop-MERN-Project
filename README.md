@@ -32,6 +32,7 @@ JWT_SECRET=secret_string
 CLOUDINARY_CLOUD_NAME=your_cloudinary_cloud_name
 CLOUDINARY_API_KEY=your_cloudinary_api_key
 CLOUDINARY_API_SECRET=your_cloudinary_api_secret
+ADMIN_EMAIL=testing2609@gmail.com
 
 ### 4. Start the Development Servers
 
