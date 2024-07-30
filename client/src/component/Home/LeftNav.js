@@ -42,7 +42,7 @@ const LeftNav = ({ className }) => {
         <ul>
           <li className="mb-4">
             <NavLink
-              to="/allcategories"
+              to="/"
               className="text-left w-full p-2 mb-2 rounded block"
               activeClassName="bg-gray-300"
             >
@@ -51,7 +51,7 @@ const LeftNav = ({ className }) => {
           </li>
           <li className="mb-4">
             <NavLink
-              to="/allcategories"
+              to="/"
               className="text-left w-full p-2 mb-2 rounded block"
               activeClassName="bg-gray-300"
             >
@@ -60,7 +60,7 @@ const LeftNav = ({ className }) => {
           </li>
           <li className="mb-4">
             <NavLink
-              to="/allcategories"
+              to="/"
               className="text-left w-full p-2 mb-2 rounded block"
               activeClassName="bg-gray-300"
             >
@@ -69,7 +69,7 @@ const LeftNav = ({ className }) => {
           </li>
           <li className="mb-4">
             <NavLink
-              to="/allcategories"
+              to="/"
               className="text-left w-full p-2 mb-2 rounded block"
               activeClassName="bg-gray-300"
             >
