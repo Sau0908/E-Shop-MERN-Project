@@ -5,16 +5,20 @@ import { useDispatch, useSelector } from "react-redux";
 import { removeUser } from "../utils/userSlice";
 import { Link, useNavigate } from "react-router-dom";
 import UserAvatar from "../User/UserAvatar";
+import { FaSignInAlt } from "react-icons/fa";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const user = useSelector((state) => state.user);
-  const { username } = user?.userInfo || {};
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
+  };
+
+  const handleLogIn = () => {
+    navigate("/login");
   };
 
   const handleLogout = () => {
@@ -46,12 +50,23 @@ const Header = () => {
         </nav>
         <div className="hidden md:flex items-center space-x-4">
           <UserAvatar />
-          <button
-            onClick={handleLogout}
-            className="text-gray-800 hover:text-gray-600 focus:outline-none"
-          >
-            <FaSignOutAlt size={30} />
-          </button>
+          {!user.isAuthenticated ? (
+            <button
+              onClick={handleLogIn}
+              className="text-gray-800 flex mr-2 hover:text-gray-600 focus:outline-none"
+            >
+              <FaSignInAlt size={30} />{" "}
+              <p className="ml-2 hover:underline ">LogIn </p>
+            </button>
+          ) : (
+            <button
+              onClick={handleLogout}
+              className="text-gray-800 flex mr-2 hover:text-gray-600 focus:outline-none"
+            >
+              <FaSignOutAlt size={30} />{" "}
+              <p className="ml-2 hover:underline">LogOut </p>
+            </button>
+          )}
         </div>
         <div className="md:hidden flex items-center">
           <button

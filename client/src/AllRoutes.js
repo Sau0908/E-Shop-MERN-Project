@@ -15,6 +15,10 @@ const AllRoutes = () => {
   const router = createBrowserRouter([
     {
       path: "/",
+      element: <Body />,
+    },
+    {
+      path: "/login",
       element: <Main />,
     },
     {
@@ -27,11 +31,11 @@ const AllRoutes = () => {
     },
     {
       path: "/allproduct",
-      element: <PrivateRoute element={AllProduct} />,
+      element: <AllProduct />,
     },
     {
       path: "/product/:id",
-      element: <PrivateRoute element={Product} />,
+      element: <Product />,
     },
     {
       path: "/editproduct/:id",

@@ -24,3 +24,7 @@ router.put(
 router.delete("/products/:id", auth, isAdmin, deleteProduct);
 
 export default router;
+
+
+
+
