@@ -6,6 +6,7 @@ import LeftNav from "../Home/LeftNav";
 import Header from "../Header/Header";
 import { useSelector } from "react-redux";
 import Swal from "sweetalert2";
+import ShimmerLoadingUI from "../Home/ShimmerLoadingUI";
 
 const Product = () => {
   const { id } = useParams();
@@ -47,8 +48,8 @@ const Product = () => {
       Swal.fire("Success", "Product Added into Cart", "successfully");
   };
 
-  if (loading) {
-    return <div className="container mx-auto py-8 text-center">Loading...</div>;
+   if (loading) {
+    return <ShimmerLoadingUI />;
   }
 
   if (error) {
