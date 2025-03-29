@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import ProductCard from "./ProductCard";
-import LeftNav from "../Home/LeftNav";
-import Header from "../Header/Header";
 
 const AllProduct = () => {
   const [products, setProducts] = useState([]);
@@ -31,10 +29,10 @@ const AllProduct = () => {
   if (error) return <p>{error}</p>;
 
   return (
-    <div>
-      <div className=" mt-12 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3  p-4 ">
+    <div className="mx-auto max-w-6xl">
+      <div className="my-24 grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-y-12 px-4">
         {products.map((product) => (
-          <ProductCard key={product.id} product={product} />
+          <ProductCard key={product._id || product.id} product={product} />
         ))}
       </div>
     </div>

@@ -1,9 +1,7 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import AllProduct from "../Product/AllProduct";
 
 const AdminPannel = () => {
-  const navigate = useNavigate();
   const [showProductComponent, setShowProductComponent] = useState(false);
   const handleProductBtn = () => {
     setShowProductComponent(!showProductComponent);
