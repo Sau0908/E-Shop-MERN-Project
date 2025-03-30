@@ -10,6 +10,7 @@ import PrivateRoute from "./component/PrivateRoute";
 import AllUser from "./component/User/AllUser";
 import AdminPannel from "./component/Admin/AdminPannel";
 import UserProfile from "./component/User/UserProfile";
+import BuyNow from "./component/Checkout/BuyNow";
 
 const AllRoutes = () => {
   const router = createBrowserRouter([
@@ -53,6 +54,11 @@ const AllRoutes = () => {
       path: "/user/userprofile",
       element: <PrivateRoute element={UserProfile} />,
     },
+    {
+      path: "/buy-now/:id",
+      element: <PrivateRoute element={BuyNow} />,
+    },
+    
   ]);
 
   return <RouterProvider router={router} />;
